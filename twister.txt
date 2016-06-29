@@ -1,0 +1,30 @@
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+
+import javax.swing.*;
+
+public class Twister implements ActionListener {
+String[] napisy = {"Lewa noga", "Prawa noga", "Lewa rêka", "Prawa rêka"};
+Color[] kolory = {Color.red,Color.cyan,Color.yellow,Color.green};
+JFrame okno = new JFrame();
+JButton przycisk = new JButton();
+Random generator;
+
+
+
+Twister(){
+	okno.add(przycisk);
+	przycisk.addActionListener(this);
+	okno.setVisible(true);
+}
+
+
+
+@Override
+public void actionPerformed(ActionEvent a) {
+	przycisk.setText(napisy[generator.nextInt(4)]);
+	przycisk.setBackground(kolory[generator.nextInt(4)]);
+}
+}
